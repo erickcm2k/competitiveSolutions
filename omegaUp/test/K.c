@@ -3,6 +3,7 @@ int main()
 {
 	int MAX=0,terminos, fib=1,nm1=2,nm2=1;
 
+	printf("Hello world");
 	scanf("%d",&MAX);
 	if((MAX>0)&&(MAX<=1000000)){
 
