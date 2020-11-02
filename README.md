@@ -1,10 +1,24 @@
 # competitiveSolutions
 Solutions to competitive programming problems from some online judges.
 
-# Online Judge Profiles
+# Online Judges
 
 # Hackerrank
-https://www.hackerrank.com/erickce40
+
+https://www.hackerrank.com/
+
+# Donald E. Knuth
+
+https://www.facebook.com/events/570806507134708
 
 # Codeforces
-http://codeforces.com/profile/erick_cm
+
+https://codeforces.com/
+
+# Interview-cake
+
+https://www.interviewcake.com/
+
+# OmegaUp
+
+https://omegaup.com/
