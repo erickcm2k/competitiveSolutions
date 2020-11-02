@@ -21,4 +21,4 @@ Solutions to competitive programming problems from some online judges.
 
  - OmegaUp
 
-  https://omegaup.com/
+   https://omegaup.com/
