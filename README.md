@@ -3,22 +3,22 @@ Solutions to competitive programming problems from some online judges.
 
 # Online Judges
 
- Hackerrank
+ *Hackerrank
 
 https://www.hackerrank.com/
 
- Donald E. Knuth
+ *Donald E. Knuth
 
 https://www.facebook.com/events/570806507134708
 
- Codeforces
+ *Codeforces
 
 https://codeforces.com/
 
- Interview-cake
+ *Interview-cake
 
 https://www.interviewcake.com/
 
- OmegaUp
+ *OmegaUp
 
 https://omegaup.com/
