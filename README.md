@@ -3,7 +3,7 @@ Solutions to competitive programming problems from some online judges.
 
 # Online Judges
 
- *Hackerrank
+ * Hackerrank
 
 https://www.hackerrank.com/
 
