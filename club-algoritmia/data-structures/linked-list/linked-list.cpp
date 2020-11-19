@@ -107,7 +107,7 @@ public:
         {
             Node *temp = head;
 
-            for (int i = 0; i < size - 1; i++)
+            for (int i = 0; i < size - 2; i++)
             {
                 temp = temp->next;
             }
@@ -136,7 +136,24 @@ public:
         }
         --size;
     }
-
+    void popAt(int pos) // O(1)
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        else if (head->next == NULL)
+        {
+            head = NULL;
+        }
+        else
+        {
+            Node *temp = head;
+            head = temp->next;
+            temp = NULL;
+        }
+        --size;
+    }
     int getHead()
     {
         return head->value;
@@ -162,6 +179,43 @@ public:
     }
 };
 
+void newIntercalatedList(Node *rootA, Node *rootB)
+{
+    linkedList newList;
+    Node *tempA = rootA;
+    Node *tempB = rootB;
+    // Caso 1, lista A está vacía.
+    if (!tempA)
+    {
+        // Insertar todos los elementos de B en la nueva lista.
+    }
+
+    // Caso 2, lista B está vacía.
+    if (!tempB)
+    {
+        // Insertar todos los elementos de A en la nueva lista.
+    }
+
+    // Caso 3, listas del mismo tamaño.
+    while (tempA and tempB)
+    {
+        tempA = tempA->next;
+        tempB = tempB->next;
+        // insertar elemento de A en lista nueva
+        // insertar elemento de B en lista nueva
+    }
+
+    // Caso 4, listas de diferente tamaño.
+    if (tempA)
+    {
+        // Insertar los elementos restantes de A en la nueva lista
+    }
+    if (tempB)
+    {
+        // Insertar los elementos restantes de B en la nueva lista
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     linkedList myList;
@@ -169,8 +223,8 @@ int main(int argc, char const *argv[])
     myList.pushBack(20);
     myList.pushBack(30);
     myList.popBack();
-    myList.popFront();
-    myList.popFront();
+    myList.popBack();
+    myList.popBack();
     myList.pushBack(40);
     myList.pushBack(50);
     cout << "Head is: " << myList.getHead() << endl;
