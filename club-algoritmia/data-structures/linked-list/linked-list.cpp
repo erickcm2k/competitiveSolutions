@@ -164,6 +164,11 @@ public:
         return tail->value;
     }
 
+    Node *getRoot()
+    {
+        return head;
+    }
+
     void show()
     {
         Node *temp = head;
@@ -179,57 +184,84 @@ public:
     }
 };
 
-void newIntercalatedList(Node *rootA, Node *rootB)
+linkedList mergeLists(linkedList A, linkedList B)
 {
-    linkedList newList;
-    Node *tempA = rootA;
-    Node *tempB = rootB;
+    linkedList mergedList;
+    Node *tempA = A.getRoot();
+    Node *tempB = B.getRoot();
     // Caso 1, lista A está vacía.
     if (!tempA)
     {
         // Insertar todos los elementos de B en la nueva lista.
+        while (tempB)
+        {
+            mergedList.pushBack(tempB->value);
+            tempB = tempB->next;
+        }
     }
 
     // Caso 2, lista B está vacía.
     if (!tempB)
     {
         // Insertar todos los elementos de A en la nueva lista.
+        while (tempA)
+        {
+            mergedList.pushBack(tempA->value);
+            tempA = tempA->next;
+        }
     }
 
     // Caso 3, listas del mismo tamaño.
     while (tempA and tempB)
     {
-        tempA = tempA->next;
-        tempB = tempB->next;
         // insertar elemento de A en lista nueva
+        mergedList.pushBack(tempA->value);
+        tempA = tempA->next;
         // insertar elemento de B en lista nueva
+        mergedList.pushBack(tempB->value);
+        tempB = tempB->next;
     }
 
     // Caso 4, listas de diferente tamaño.
     if (tempA)
     {
         // Insertar los elementos restantes de A en la nueva lista
+        while (tempA)
+        {
+            mergedList.pushBack(tempA->value);
+            tempA = tempA->next;
+        }
     }
     if (tempB)
     {
         // Insertar los elementos restantes de B en la nueva lista
+        while (tempB)
+        {
+            mergedList.pushBack(tempB->value);
+            tempB = tempB->next;
+        }
     }
+    return mergedList;
 }
 
 int main(int argc, char const *argv[])
 {
-    linkedList myList;
-    myList.pushBack(10);
-    myList.pushBack(20);
-    myList.pushBack(30);
-    myList.popBack();
-    myList.popBack();
-    myList.popBack();
-    myList.pushBack(40);
-    myList.pushBack(50);
-    cout << "Head is: " << myList.getHead() << endl;
-    // cout << "Tail is: " << myList.getTail() << endl;
-    myList.show();
-    cout << "Size is: " << myList.getSize() << endl;
+    linkedList listA;
+    listA.pushBack(10);
+    listA.pushBack(20);
+    listA.pushBack(30);
+
+    linkedList listB;
+    listB.pushBack(40);
+    // listB.pushBack(50);
+    // listB.pushBack(60);
+
+    linkedList mergedList = mergeLists(listA, listB);
+    mergedList.show();
+    // cout << "Head is: " << myList.getHead() << endl;
+    // // cout << "Tail is: " << myList.getTail() << endl;
+    // myList.show();
+    // cout << "Size is: " << myList.getSize() << endl;
     return 0;
 }
+
