@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-class MaxHeap
+class MinHeap
 {
 public:
     vector<int> A;
@@ -14,6 +14,11 @@ public:
         A.push_back(value);
         int i = A.size() - 1;
 
+        /* .
+            Ensures that the new value is greater or equal
+            than its parent's value, moving it from the last
+            position to its corresponding position.
+        */
         while (i != 0 && A[parentIndex(i)] > A[i])
         {
             swap(A[parentIndex(i)], A[i]);
@@ -31,25 +36,38 @@ public:
             size--;
             A.pop_back();
         }
+
+        /*
+            If size is > 1, this section will ensure that
+            the array is still a min-heap.
+        */
+
+        A.pop_back();
         size--;
         swap(A[0], A[size]);
-        A.pop_back();
-        heapify(0);
+        minHeapify(0);
     }
 
     int getTop() { return A.front(); }
 
     vector<int> getHeap() { return A; }
 
-    // Auxiliary functions
-    int parentIndex(int i)
+    void printHeap()
     {
-        return (i - 1) / 2;
+        for (auto num : A)
+        {
+            cout << num << " ";
+        }
+        cout << endl;
     }
+
+    // Auxiliary functions
+private:
+    int parentIndex(int i) { return (i - 1) / 2; }
     int leftSonIndex(int i) { return (i * 2) + 1; }
     int rightSonIndex(int i) { return (i * 2) + 2; }
 
-    void heapify(int i)
+    void minHeapify(int i)
     {
         int l = leftSonIndex(i);
         int r = rightSonIndex(i);
@@ -58,10 +76,12 @@ public:
             largest = l;
         if (r < A.size() && A[r] < A[largest])
             largest = r;
+        // In case that given node is smaller
+        // than their sons.
         if (largest != i)
         {
             swap(A[i], A[largest]);
-            heapify(largest);
+            minHeapify(largest);
         }
     }
 };
@@ -69,23 +89,17 @@ public:
 int main(int argc, char const *argv[])
 {
 
-    int heapSize, val;
-    MaxHeap myHeap;
-    cin >> heapSize;
+    int n, val;
+    MinHeap myHeap;
+    cin >> n;
 
-    for (int i = 0; i < heapSize; i++)
+    for (int i = 0; i < n; i++)
     {
         cin >> val;
         myHeap.push(val);
     }
 
-    for (auto num : myHeap.getHeap())
-    {
-        cout << num << " ";
-    }
-    cout << endl;
-
-    myHeap.pop();
+    myHeap.printHeap();
 
     return 0;
 }
