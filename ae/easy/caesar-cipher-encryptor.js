@@ -1,8 +1,7 @@
 // O(n) time | O(n) space
 const getNewLetter = (letter, key) => {
   const newLetterCode = letter.charCodeAt() + key;
-  console.log( (newLetterCode % 122));
-  return newLetterCode <= 122
+  return newLetterCode <= 122 // If incrementated code is less than 122 (z), return the character.
     ? String.fromCharCode(newLetterCode)
     : String.fromCharCode(96 + (newLetterCode % 122));
 };
